@@ -26,7 +26,8 @@ module.exports = (sequelize, DataTypes) => {
         image: {
             type: DataTypes.STRING,
             allowNull: true,
-            defaultValue: "https://bit.ly/3cCp7oC",
+            defaultValue:
+                "https://t3.ftcdn.net/jpg/00/64/67/80/360_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg",
         },
         bio: {
             type: DataTypes.STRING,

@@ -53,6 +53,27 @@ exports.postSingIn = async (req, res, next) => {
     }
 };
 
+exports.postUserAuthenticated = async (req, res, next) => {
+    // console.log("getUserAuthenticated: ", req.body);
+    try {
+        const { username, email } = jwt.verify(
+            req.body.token,
+            process.env.JWT_KEY
+        );
+        // console.log(username, email);
+        const user = await db.users.findByPk(username);
+        // console.log(user);
+        if (user === null) {
+            return res.send("error");
+        }
+        else {
+            res.send("SUCCESS");
+        }
+    } catch (error) {
+        console.log("HERE", error);
+    }
+};
+
 exports.postSignUp = async (req, res, next) => {
     // console.log(req.body.data);
     try {
