@@ -12,6 +12,8 @@ router.get("/verifySignUp/:token", authController.postVerifySignUp);
 
 router.post("/signUp", authController.postSignUp);
 
+router.post("/changeUserDetails", userController.postChangeUserDetails);
+
 router.get("/getUserProfileDetails", userController.getUserProfileDetails);
 
 router.get("/", authController.home);

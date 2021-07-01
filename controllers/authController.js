@@ -43,8 +43,7 @@ exports.postSingIn = async (req, res, next) => {
                     token: token,
                     resutl: "SUCCESS",
                 });
-            }
-            else {
+            } else {
                 res.json({ result: "ERROR" });
             }
         }
@@ -65,8 +64,7 @@ exports.postUserAuthenticated = async (req, res, next) => {
         // console.log(user);
         if (user === null) {
             return res.send("error");
-        }
-        else {
+        } else {
             res.send("SUCCESS");
         }
     } catch (error) {
@@ -165,7 +163,7 @@ exports.postSignUp = async (req, res, next) => {
             },
             process.env.JWT_KEY
         );
-        
+
         console.log("SENDING EMAIL TO : ", email);
         transporter.sendMail({
             from: process.env.GMAIL,
@@ -181,7 +179,7 @@ exports.postSignUp = async (req, res, next) => {
     }
 };
 
-exports.postVerifySignUp = async(req, res, next) => {
+exports.postVerifySignUp = async (req, res, next) => {
     try {
         // console.log("POST VERIFICATION");
         // console.log(req);
@@ -199,15 +197,13 @@ exports.postVerifySignUp = async(req, res, next) => {
             res.send(
                 `<div><a href=${process.env.FRONTEND_URL}>Login with you Credentials!</a></div>`
             );
-        }
-        else {
+        } else {
             res.send(`<h1 style="color: red, textAlign: center">ERROR</h1>`);
         }
-    }
-    catch (error) {
+    } catch (error) {
         console.log(error);
     }
-}
+};
 
 exports.home = (req, res, next) => {
     res.send("<h1>Welcome to Instagram clone API!</h1>");
